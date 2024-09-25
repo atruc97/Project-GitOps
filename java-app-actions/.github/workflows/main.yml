@@ -105,5 +105,7 @@ jobs:
         #   config-files: .github/values/dev.yaml
           chart-path: helm/javaappcharts
           namespace: default
-          values: appimage=${{ secrets.REGISTRY }}/${{ env.ECR_REPOSITORY }},apptag=${{ github.run.number }}
+          values: |
+            appimage=${{ secrets.REGISTRY }}/${{ env.ECR_REPOSITORY }},apptag=${{ github.run.number }}
+            dbimage=${{ secrets.REGISTRY }}/${{ env.ECR_REPOSITORY }},dbtag=${{ github.run.number }}
           name: java-app-stack
